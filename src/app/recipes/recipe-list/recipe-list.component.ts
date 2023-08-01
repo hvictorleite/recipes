@@ -11,6 +11,10 @@ export class RecipeListComponent implements OnInit {
     new Recipe('A Test Recipe', 'This is a simply recipe example.',
       'https://cdn-icons-png.flaticon.com/512/683/683488.png'),
     new Recipe('A Test Recipe', 'This is a simply recipe example.',
+      'https://cdn-icons-png.flaticon.com/512/683/683488.png'),
+    new Recipe('A Test Recipe', 'This is a simply recipe example.',
+      'https://cdn-icons-png.flaticon.com/512/683/683488.png'),
+    new Recipe('A Test Recipe', 'This is a simply recipe example.',
       'https://cdn-icons-png.flaticon.com/512/683/683488.png')
   ];
 
