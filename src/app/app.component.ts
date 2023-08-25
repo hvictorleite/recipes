@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipes';
-  currentTab: string = 'recipes';
-
-  selectTab (tabName: string) : void {
-    this.currentTab = tabName;
-  }
 }
