@@ -4,7 +4,8 @@
   </div>
   <div class="col-xs-12 list-group">
     <app-recipe-item
-      *ngFor="let recipeEl of recipes"
-      [recipe]="recipeEl"></app-recipe-item>
+      *ngFor="let recipeEl of recipes; let i = index"
+      [recipe]="recipeEl"
+      [index]="i"></app-recipe-item>
   </div>
 </div>
