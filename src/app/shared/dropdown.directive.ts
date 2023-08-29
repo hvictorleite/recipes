@@ -18,14 +18,4 @@ export class DropdownDirective {
       this.renderer.addClass(part, 'show');
     else this.renderer.removeClass(part, 'show');
   }
-
-  @HostListener('focusout') closeFromAnywhere(): void {
-    const element = this.elRef.nativeElement;
-    const part = element.querySelector('.dropdown-menu');
-
-    if (this.isOpen) {
-      this.renderer.removeClass(part, 'show');
-      this.isOpen = false;
-    }
-  }
 }
