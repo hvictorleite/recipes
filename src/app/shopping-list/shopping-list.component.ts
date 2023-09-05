@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[] = [];
+  selectedIndex: number;
   private subscription: Subscription;
 
   constructor(private shoppingListService: ShoppingListService) {}
@@ -20,6 +21,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       .subscribe((ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
       });
+  }
+
+  onEditItem(index: number) {
+    this.selectedIndex = index;
+    this.shoppingListService.startedEditing.next(index);
   }
 
   ngOnDestroy() {
