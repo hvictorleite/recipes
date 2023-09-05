@@ -5,7 +5,8 @@
         <div class="col-12">
           <button
             type="submit"
-            class="btn btn-success me-1">Save</button>
+            class="btn btn-success me-1"
+            [disabled]="!recipeForm.valid">Save</button>
           <button
             type="button"
             class="btn btn-danger">Cancel</button>
