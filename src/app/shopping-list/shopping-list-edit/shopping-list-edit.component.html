@@ -30,8 +30,15 @@
             type="submit"
             class="btn btn-success me-1"
             [disabled]="!SlEditForm.valid">{{editMode ? 'Update' : 'Add'}}</button>
-          <button type="button" class="btn btn-danger me-1">Delete</button>
-          <button type="button" class="btn btn-primary">Clear</button>
+          <button
+            type="button"
+            class="btn btn-danger me-1"
+            (click)="onDelete()"
+            *ngIf="editMode">Delete</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>
