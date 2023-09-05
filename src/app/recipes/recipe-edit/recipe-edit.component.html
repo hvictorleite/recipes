@@ -1,1 +1,73 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-12">
+    <form>
+      <div class="row">
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-success me-1">Save</button>
+          <button
+            type="button"
+            class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="imagePath">Image Path</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imagePath"
+              ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-12">
+          <img src="" class="img-responsive">
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="description"
+              rows="6"
+              ngModel></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="row mt-1">
+            <div class="col-8">
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-2">
+              <input type="number" class="form-control">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
