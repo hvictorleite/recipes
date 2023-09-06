@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
@@ -20,6 +20,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private recipeService: RecipeService) {}
 
   ngOnInit() {
@@ -76,6 +77,12 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       this.recipeService.updateRecipe(this.id, newRecipe);
     else
       this.recipeService.addRecipe(newRecipe);
+
+    this.onCancel();
+  }
+
+  onCancel() {
+    this.router.navigate([".."], {relativeTo: this.route});
   }
 
   onAddIngredient() {
