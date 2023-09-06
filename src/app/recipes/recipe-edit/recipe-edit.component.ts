@@ -30,7 +30,6 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         this.editMode = params['id'] != null;
         this.initForm();
       });
-    console.log(this.recipeForm);
   }
 
   private initForm() {
@@ -92,6 +91,10 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         'amount': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[1-9]*$/)])
       })
     );
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
   ngOnDestroy() {
