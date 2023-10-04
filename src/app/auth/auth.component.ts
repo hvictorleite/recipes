@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AuthResponseData, AuthService } from "./auth.service";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
+
+import { AlertComponent } from "../shared/alert/alert.component";
+import { PlaceholderDirective } from "../shared/placeholder/placeholder.directive";
 
 @Component({
   selector: 'app-auth',
@@ -12,8 +15,11 @@ export class AuthComponent {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
+  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router) {}
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -39,7 +45,8 @@ export class AuthComponent {
         this.router.navigate(['/recipes']);
       },
       error: (errorMessage: string) => {
-        this.error = errorMessage;
+        this.error = errorMessage; // unnecessary in this approach
+        this.showErrorAlert(errorMessage);
         this.isLoading = false;
       }
     });
@@ -47,7 +54,15 @@ export class AuthComponent {
     form.reset();
   }
 
-  onHandleError() {
-    this.error = null;
+  // onHandleError() {
+  //   this.error = null;
+  // }
+
+  showErrorAlert(message: string) {
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+    hostViewContainerRef.createComponent(AlertComponent);
   }
+
+
 }
